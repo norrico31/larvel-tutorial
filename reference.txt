@@ -1,0 +1,2 @@
+to create a table
+php artisan make:migration create_listings_table

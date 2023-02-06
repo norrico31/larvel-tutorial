@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-class Listings
+class Listing
 {
     public static function all()
     {
