@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Models\Listings;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,34 +15,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// All Listings
 Route::get('/', function () {
     return view('listings', [
         'heading' => 'Latest Listings',
-        'listings' => [
-            [
-                'id' => 1,
-                'title' => 'Listing One',
-                'description' => 'Description One'
-            ],
-            [
-                'id' => 2,
-                'title' => 'Listing Two',
-                'description' => 'Description Two'
-            ],
-        ]
+        'listings' => Listings::all()
     ]);
 });
 
-// Route::get('/hello', function () {
-//     return response('<h1>Hello World</h1>', 200);
-// });
-
-// Route::get('/post/{id}', function ($id) {
-//     // dd($id);
-//     return response('Post: ' . $id);
-// })->where('id', '[0-9]+');
-
-// Route::get('/search', function (Request $request) {
-//     dd($request->name . ' ' . $request->lastname);
-//     // return response($request->name . ' ' . $request->lastname, 200);
-// });
+// Single Listing
+Route::get('/listing/{id}', function ($id) {
+    return view('listing', ['listing' => Listings::find($id)]);
+});
