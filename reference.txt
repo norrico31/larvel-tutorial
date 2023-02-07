@@ -1,2 +1,11 @@
-to create a table
+to create a table migration
 php artisan make:migration create_listings_table
+
+to migrate with seed
+php artisan migrate:refresh --seed
+
+to create a model
+php artisan make:model Listing
+
+to create factory
+php artisan make:factory ListingFactory
