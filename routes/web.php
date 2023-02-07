@@ -26,8 +26,6 @@ use App\Models\Listing;
 // destroy - Delete listing  
 
 
-// All Listings
-Route::get('/', [ListingController::class, 'index']);
-
-// Single Listing
-Route::get('/listing/{listing}', [ListingController::class, 'show']);
+// Listings
+Route::get('/', [ListingController::class, 'index']); // All Listings
+Route::get('/listing/{listing}', [ListingController::class, 'show']); // Single Listing
