@@ -13,4 +13,4 @@ php artisan make:factory ListingFactory
 create controller
 php artisan make:controller ListingController
 
-1:40:43
+1:56:57
