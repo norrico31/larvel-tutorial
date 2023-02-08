@@ -1,3 +1,4 @@
+
 create a table migration
 php artisan make:migration create_listings_table
 
@@ -13,4 +14,5 @@ php artisan make:factory ListingFactory
 create controller
 php artisan make:controller ListingController
 
-1:56:57
+install package
+composer require package
