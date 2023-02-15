@@ -28,6 +28,9 @@ use App\Models\Listing;
 
 // Listings
 Route::get('/', [ListingController::class, 'index']); // All Listings
-Route::get('/listings/create', [ListingController::class, 'create']); // Create Listing 
-Route::post('/listings', [ListingController::class, 'store']); // Store Listing 
-Route::get('/listings/{listing}', [ListingController::class, 'show']); // Single Listing
+Route::get('/listings/create', [ListingController::class, 'create']); // Show Create Form 
+Route::post('/listings', [ListingController::class, 'store']); // Store Listing (Create)
+Route::get('/listings/{listing}/edit', [ListingController::class, 'edit']); // Show Edit Form
+Route::put('/listings/{listing}', [ListingController::class, 'update']); // Update Listing (Edit)
+Route::delete('/listings/{listing}', [ListingController::class, 'destroy']); // Update Listing (Edit)
+Route::get('/listings/{listing}', [ListingController::class, 'show']); // Show Single Listing
