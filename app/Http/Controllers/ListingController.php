@@ -42,6 +42,6 @@ class ListingController extends Controller
             'description' => 'nullable',
         ]);
         Listing::create($form_fields);
-        return redirect('/');
+        return redirect('/')->with('message', 'Listing created successfully!');
     }
 }
