@@ -20,7 +20,7 @@ class ListingController extends Controller
     // show single listing
     public function show(Listing $listing)
     {
-        return view('listings', ['listing' => $listing]);
+        return view('listings.show', ['listing' => $listing]);
     }
 
     // show create form
@@ -41,6 +41,9 @@ class ListingController extends Controller
             'tags' => 'required',
             'description' => 'nullable',
         ]);
+        if ($request->hasFile('logo')) {
+            $form_fields['logo'] = $request->file('logo')->store('logos', 'public');
+        }
         Listing::create($form_fields);
         return redirect('/')->with('message', 'Listing created successfully!');
     }

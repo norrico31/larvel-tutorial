@@ -17,6 +17,8 @@ php artisan make:controller ListingController
 install package
 composer require package
 
+same link for uploads to public
+php artisan storage:link
 
 
-2:27:25
+2:45:00
