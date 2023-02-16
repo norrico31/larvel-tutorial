@@ -29,14 +29,14 @@ use App\Http\Controllers\ListingController;
 
 // Listings
 Route::get('/', [ListingController::class, 'index']); // All Listings
-Route::get('/listings/create', [ListingController::class, 'create']); // Show Create Form page
-Route::post('/listings', [ListingController::class, 'store']); // Store Listing (Create)
-Route::get('/listings/{listing}/edit', [ListingController::class, 'edit']); // Show Edit Form page
-Route::put('/listings/{listing}', [ListingController::class, 'update']); // Update Listing (Edit)
-Route::delete('/listings/{listing}', [ListingController::class, 'destroy']); // Update Listing (Edit)
+Route::get('/listings/create', [ListingController::class, 'create'])->middleware('auth'); // Show Create Form page
+Route::post('/listings', [ListingController::class, 'store'])->middleware('auth'); // Store Listing (Create)
+Route::get('/listings/{listing}/edit', [ListingController::class, 'edit'])->middleware('auth'); // Show Edit Form page
+Route::put('/listings/{listing}', [ListingController::class, 'update'])->middleware('auth'); // Update Listing (Edit)
+Route::delete('/listings/{listing}', [ListingController::class, 'destroy'])->middleware('auth'); // Update Listing (Edit)
 Route::get('/listings/{listing}', [ListingController::class, 'show']); // Show Single Listing page
-Route::get('/register', [UserController::class, 'create']); // Show register page
+Route::get('/register', [UserController::class, 'create'])->middleware('guest'); // Show register page
 Route::post('/users', [UserController::class, 'store']); // Create new user
-Route::post('/logout', [UserController::class, 'logout']); // Logout user
-Route::get('/login', [UserController::class, 'login']); // Show login form page
+Route::post('/logout', [UserController::class, 'logout'])->middleware('auth'); // Logout user
+Route::get('/login', [UserController::class, 'login'])->name('login')->middleware('guest'); // Show login form page
 Route::post('/users/authenticate', [UserController::class, 'authenticate']); // Login user
