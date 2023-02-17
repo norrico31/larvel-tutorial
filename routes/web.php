@@ -34,6 +34,7 @@ Route::post('/listings', [ListingController::class, 'store'])->middleware('auth'
 Route::get('/listings/{listing}/edit', [ListingController::class, 'edit'])->middleware('auth'); // Show Edit Form page
 Route::put('/listings/{listing}', [ListingController::class, 'update'])->middleware('auth'); // Update Listing (Edit)
 Route::delete('/listings/{listing}', [ListingController::class, 'destroy'])->middleware('auth'); // Update Listing (Edit)
+Route::get('/listings/manage', [ListingController::class, 'manage'])->middleware('auth'); // Show Listing Page
 Route::get('/listings/{listing}', [ListingController::class, 'show']); // Show Single Listing page
 Route::get('/register', [UserController::class, 'create'])->middleware('guest'); // Show register page
 Route::post('/users', [UserController::class, 'store']); // Create new user
